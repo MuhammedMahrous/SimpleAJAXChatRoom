@@ -47,7 +47,8 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-sm-4 offset-2">
+            <div class="col-sm-2 offset-4">
+                <h4>Users</h4>
                 <table class="table">
                     <thead>
                     <th>Username</th>
@@ -60,7 +61,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-3 offset-4">
+            <div class="col-sm-4 offset-2">
                 <input type="text" name="message" id="message" class="form-control">
             </div>
             <div class="col-sm-1">

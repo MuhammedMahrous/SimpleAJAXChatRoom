@@ -1,7 +1,13 @@
 $(document).ready(function () {
     var username = $("#username").val();
+    $("#message").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#sendMsg").click();
+    }
+});
     $("#sendMsg").click(function () {
         var message = $("#message").val();
+        $("#message")[0].value = "";
         if (username == undefined || message == undefined) {
             alert("Enter your username and message before sending!!");
         } else {
