@@ -4,3 +4,4 @@ nbbuild/*
 dist/*
 nbdist/*
 build.xml
+lib/

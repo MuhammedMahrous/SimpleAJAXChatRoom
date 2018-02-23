@@ -1,11 +1,5 @@
-var username;
-
-function SaveUserName() {
-    username = $("#username").val();
-    $("#username").prop('disabled', true);
-    $("#saveBtn").prop('disabled', true);
-}
 $(document).ready(function () {
+    var username = $("#username").val();
     $("#sendMsg").click(function () {
         var message = $("#message").val();
         if (username == undefined || message == undefined) {
@@ -14,7 +8,7 @@ $(document).ready(function () {
             var serverUrl = "MessagesServlet?username=" + username + "&message=" + message;
             $.ajax({url: serverUrl, success: function (result) {
                     console.log("Successfully sent the message");
-                },error: function (jqXHR, textStatus, errorThrown) {
+                }, error: function (jqXHR, textStatus, errorThrown) {
                     console.log("ERROR CONNECTING TO THE SERVER");
                 }});
         }
@@ -32,6 +26,25 @@ $(document).ready(function () {
                         `</td>
                     <td>` +
                         msg.text +
+                        `</td>
+                </tr>`
+                        );
+            });
+        });
+    }, 300);
+
+    setInterval(() => {
+        $.post("Users", (data) => {
+            $("#users").empty();
+            var users = JSON.parse(data);
+            users.forEach(user => {
+                $("#users").append(
+                        `                <tr>
+                    <td>
+                     ` + user.username +
+                        `</td>
+                    <td>` +
+                        user.status +
                         `</td>
                 </tr>`
                         );

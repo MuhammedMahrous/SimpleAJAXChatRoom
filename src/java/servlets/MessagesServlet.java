@@ -1,3 +1,5 @@
+package servlets;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -39,10 +41,6 @@ public class MessagesServlet extends HttpServlet {
 
         MessageDTO myMsg = new MessageDTO(msgText, id, msgSender);
         Messages.messages.add(myMsg);
-        Gson mygson = new Gson();
-        String JSONResponse = mygson.toJson(Messages.messages);
-        response.getWriter().write(JSONResponse);
-
     }
 
     /**
